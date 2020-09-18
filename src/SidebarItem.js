@@ -2,8 +2,6 @@ import React from 'react'
 
 export default function SidebarItem() {
     return (
-        <div>
-            
-        </div>
+        <button className="sidebar-item">Sidebar Item</button>
     )
 }

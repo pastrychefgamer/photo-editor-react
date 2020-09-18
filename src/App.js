@@ -9,6 +9,7 @@ function App() {
       <div className="main-image" />
       <div className="sidebar">
         <SidebarItem />
+        <SidebarItem />
       </div>
       <Slider />
     </div>
