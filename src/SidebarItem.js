@@ -5,7 +5,7 @@ export default function SidebarItem({ name, active, handleClick }) {
         <button 
             className={`sidebar-item ${active ? 'active' : ''}`}
             onClick={handleClick}
-            >
+        >
             {name}
         </button>
     )
