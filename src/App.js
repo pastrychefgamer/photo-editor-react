@@ -26,7 +26,7 @@ const DEFAULT_OPTIONS = [
   },
   {
     name: 'Contrast',
-    property: 'constrast',
+    property: 'contrast',
     value: 100,
     range: {
       min: 0,
@@ -73,7 +73,7 @@ const DEFAULT_OPTIONS = [
       max: 20
     },
     unit: 'px'
-  }
+  },
 ]
 
 function App() {
