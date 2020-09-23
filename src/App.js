@@ -16,7 +16,7 @@ const DEFAULT_OPTIONS = [
   },
   {
     name: 'Saturation',
-    property: 'saturation',
+    property: 'saturate',
     value: 100,
     range: {
       min: 0,
@@ -81,9 +81,25 @@ function App() {
   const [options, setOptions] = useState(DEFAULT_OPTIONS)
   const selectedOption = options[selectedOptionIndex]
 
+  function handleSliderChange({ target }) {
+    setOptions(prevOptions => {
+      return prevOptions.map((option, index) => {
+        if (index !== selectedOptionIndex) return option
+        return { ...option, value: target.value }
+      })
+    })
+  }
+
+  function getImageStyle() {
+    const filters = options.map(option => {
+      return `${option.property}(${option.value}${option.unit})`
+    })
+    return { filter: filters.join(' ') }
+  }
+
   return (
     <div className="container">
-      <div className="main-image" />
+      <div className="main-image" style={getImageStyle()} />
       <div className="sidebar">
         {options.map((option, index) => {
           return (
@@ -96,7 +112,12 @@ function App() {
           )
         })}
       </div>
-      <Slider />
+      <Slider 
+      min={selectedOption.range.min}
+      max={selectedOption.range.max}
+      value={selectedOption.value}
+      handleChange={handleSliderChange}
+      />
     </div>
   );
 }
